@@ -8,12 +8,12 @@ export async function authenticatedFetch(url: string, options: FetchOptions = {}
   const headers = {
     'x-api-key': API_KEY,
     'Content-Type': 'application/json',
-    ...options.headers, 
+    ...options.headers
   };
 
   const response = await fetch(url, {
     ...options,
-    headers,
+    headers
   });
 
   if (!response.ok) {

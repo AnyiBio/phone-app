@@ -41,7 +41,7 @@
   },
   "lint-staged": {
     "src/**/*": [
-      "pnpm prettier:format"
+      "pnpm prettier:fix"
     ]
   }
 }
