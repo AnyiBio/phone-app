@@ -1,0 +1,18 @@
+.text-detail {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.text-detail + p {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+
+.text-brand {
+    margin: 0;
+    text-transform: uppercase;
+    text-align: left;
+}

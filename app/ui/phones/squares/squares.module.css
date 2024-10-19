@@ -1,0 +1,39 @@
+.phone-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    padding: 16px;
+    position: relative;
+    margin-top: 80px;
+  }
+  
+  .phone-item {
+    border: 0.5px solid #000;
+    padding: 16px;
+    text-align: center;
+    width: 328px;
+    height: 344px;
+  }
+
+  .phone-item__container {
+    width: 312px;
+    height: 257px;
+  }
+  
+  @media (max-width: 1024px) {
+    .phone-grid {
+      grid-template-columns: repeat(3, 1fr); 
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .phone-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .phone-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+  
