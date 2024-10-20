@@ -1,18 +1,25 @@
+'use client';
+
+import { useRouter } from 'next/navigation';
 import clsx from 'clsx';
+import './button.css';
 
 interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   children: React.ReactNode;
+  navigateTo?: string;
 }
 
-export function Button({ children, className, ...rest }: ButtonProps) {
+export function Button({ children, className, navigateTo, ...rest }: ButtonProps) {
+  const router = useRouter();
+
+  const handleClick = () => {
+    if (navigateTo) {
+      router.push(navigateTo);
+    }
+  };
+
   return (
-    <button
-      {...rest}
-      className={clsx(
-        'flex h-10 items-center rounded-lg bg-blue-500 px-4 text-sm font-medium text-white transition-colors hover:bg-blue-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-500 active:bg-blue-600 aria-disabled:cursor-not-allowed aria-disabled:opacity-50',
-        className
-      )}
-    >
+    <button {...rest} onClick={handleClick} className={clsx('button', className)}>
       {children}
     </button>
   );

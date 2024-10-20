@@ -1,0 +1,20 @@
+.box-detail {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-between;
+  width: 25%;
+}
+
+.layout-container {
+  flex-grow: 1;
+  padding: 24px;
+  width: 90vw;
+}
+
+@media (min-width: 768px) {
+  .layout-container {
+    padding: 48px;
+    overflow-y: auto;
+  }
+}

@@ -1,4 +1,4 @@
-export const API_KEY = process.env.NEXT_PUBLIC_API_AUTHENTICATION ?? '';
+export const API_KEY = process.env.NEXT_PUBLIC_API_AUTHENTICATION || '';
 
 interface FetchOptions extends RequestInit {
   headers?: HeadersInit;

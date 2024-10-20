@@ -1,3 +1,13 @@
-export default async function Layout({}) {
-  return <div className="flex h-screen flex-col md:flex-row md:overflow-hidden my-10"></div>;
+'use client';
+
+import BackButton from '../../ui/back-button';
+import styles from '@/app/ui/phone-detail/phone-detail.module.css';
+
+export default function Layout({ children }: { children: React.ReactNode }) {
+  return (
+    <div className="pt-[80px]">
+      <BackButton />
+      <div className={styles['layout-container']}>{children}</div>
+    </div>
+  );
 }
