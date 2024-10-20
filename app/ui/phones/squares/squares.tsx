@@ -34,8 +34,8 @@ export default async function Squares({}) {
               <Image
                 src={phone?.imageUrl}
                 width={100}
-                height={100}
-                className=""
+                height={257}
+                className={styles['phone-item__image']}
                 alt="phone image"
               />
             </div>

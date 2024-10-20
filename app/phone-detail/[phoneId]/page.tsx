@@ -1,10 +1,10 @@
+import { Suspense } from 'react';
 import { ColorOptions, PhoneDetail, StorageOptions } from '@/app/models/product-detail.model';
 import Card from '@/app/ui/phone-detail/card/card';
 import ColorsList from '@/app/ui/phone-detail/color-list/color-list';
 import MiniCardList from '@/app/ui/phone-detail/mini-card/mini-card';
 import Table from '@/app/ui/phone-detail/table/table';
 import { CardSkeleton } from '@/app/ui/skeletons';
-import { Suspense } from 'react';
 import { Button } from '@/app/ui/button';
 import styles from '@/app/ui/phone-detail/phone-detail.module.css';
 
@@ -31,11 +31,10 @@ export default async function PhoneDetailPage({ params }: { params: { phoneId: s
   };
 
   const phoneDetailsResponse: PhoneAPIResponse = await getProductDetail();
-  const phoneImageByColor = phoneOptionFirst(phoneDetailsResponse);
+  const phoneImageByColor = phoneOptionFirst(phoneDetailsResponse.productDetail?.colorOptions);
   const phoneDetails: PhoneDetail = phoneDetailsResponse.productDetail;
-  const phoneStorageOptions: StorageOptions[] = phoneDetailsResponse.productDetail.storageOptions;
-  const phoneColorsOptions: ColorOptions[] = phoneDetailsResponse.productDetail.colorOptions;
-  const colorPicked: string = phoneOptionFirst(phoneColorsOptions)?.name;
+  const phoneStorageOptions: StorageOptions[] = phoneDetailsResponse.productDetail?.storageOptions;
+  const phoneColorsOptions: ColorOptions[] = phoneDetailsResponse.productDetail?.colorOptions;
 
   return (
     <>
@@ -52,7 +51,7 @@ export default async function PhoneDetailPage({ params }: { params: { phoneId: s
             <MiniCardList storageOptions={phoneStorageOptions} />
           </Suspense>
           <Suspense fallback={null}>
-            <ColorsList colorsOptions={phoneColorsOptions} pickedColorName={colorPicked} />
+            <ColorsList colorsOptions={phoneColorsOptions} />
           </Suspense>
           <Button navigateTo="/cart">AÑADIR</Button>
         </div>

@@ -1,11 +1,19 @@
+'use client';
+
 import { ColorOptions } from '@/app/models/product-detail.model';
+import { useState } from 'react';
 import './color-list.css';
 
 interface ColorsListProps {
   colorsOptions: ColorOptions[];
-  pickedColorName: string;
 }
-export default async function ColorsList({ colorsOptions, pickedColorName }: ColorsListProps) {
+export default function ColorsList({ colorsOptions }: ColorsListProps) {
+  const [selectedColor, setSelectedColor] = useState<string>('');
+
+  const handleColorClick = (color: string) => {
+    setSelectedColor(color);
+  };
+
   return (
     <>
       <p>COLOR. PICK YOUR FAVOURITE.</p>
@@ -13,12 +21,13 @@ export default async function ColorsList({ colorsOptions, pickedColorName }: Col
         {colorsOptions?.map((el) => (
           <div
             key={el.hexCode}
-            className="colors-list"
+            className={`color-square ${selectedColor === el.name ? 'selected' : ''}`}
             style={{ backgroundColor: el.hexCode }}
+            onClick={() => handleColorClick(el.name)}
           ></div>
         ))}
       </div>
-      <span>{pickedColorName}</span>
+      <span>{selectedColor}</span>
     </>
   );
 }

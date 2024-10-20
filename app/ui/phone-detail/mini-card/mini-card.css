@@ -11,10 +11,15 @@
   justify-content: center;
   align-items: center;
   cursor: pointer;
+  margin: -0.5px 0 0 -0.5px;
 }
 
 .mini-card > p {
   margin: 0px;
   text-align: center;
   width: 71px;
+}
+
+.selected {
+  border: 1px solid #000;
 }

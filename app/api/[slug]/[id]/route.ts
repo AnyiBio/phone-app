@@ -9,7 +9,6 @@ interface ApiResponse {
 
 export async function GET(req: Request, { params }: any) {
   const { slug, id } = params;
-  console.log(id, slug);
   let res: ApiResponse = { ok: false, message: 'Invalid Request', productDetail: undefined };
 
   if (slug === 'products' && !!id) {
