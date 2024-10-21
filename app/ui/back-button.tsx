@@ -1,14 +1,12 @@
 import { useRouter } from 'next/navigation';
+import styles from './back-button.module.css';
 
-const BackButton: React.FC = () => {
+const BackButton: React.FC = ({}) => {
   const router = useRouter();
 
   return (
-    <button
-      onClick={() => router.push('/')}
-      className="text-black text-sm font-medium hover:underline focus:outline-none"
-    >
-      BACK
+    <button onClick={() => router.back()} className={styles['back-button']}>
+      <span>&lt; BACK</span>
     </button>
   );
 };

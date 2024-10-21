@@ -1,13 +1,24 @@
 import { Suspense } from 'react';
-import styles from '@/app/ui/phone-detail/phone-detail.module.css';
+import CardItem from '../ui/cart/card-item/card-item';
+import { Button } from '../ui/button';
+import CardTotal from '../ui/cart/card-total/card-total';
+import '@/app/ui/cart/cart.css';
 
-export default async function PhoneDetailPage({}) {
+export default async function CartPage({}) {
   return (
-    <section>
-      <div className="flex flex-row">
-        <Suspense fallback={null}></Suspense>
-        <div className={styles['box-detail']}></div>
+    <div className="cart-page">
+      <Suspense fallback={null}>
+        <CardItem />
+      </Suspense>
+      <div className="cart-footer">
+        <Button className="shopping">
+          <span>CONTINUE SHOPPING</span>
+        </Button>
+        <CardTotal />
+        <Button className="pay">
+          <span>PAY</span>
+        </Button>
       </div>
-    </section>
+    </div>
   );
 }

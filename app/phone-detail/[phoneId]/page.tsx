@@ -5,7 +5,7 @@ import ColorsList from '@/app/ui/phone-detail/color-list/color-list';
 import MiniCardList from '@/app/ui/phone-detail/mini-card/mini-card';
 import Table from '@/app/ui/phone-detail/table/table';
 import { CardSkeleton } from '@/app/ui/skeletons';
-import { Button } from '@/app/ui/button';
+import { Button } from '@/app/ui/phone-detail/button/button';
 import styles from '@/app/ui/phone-detail/phone-detail.module.css';
 
 interface PhoneAPIResponse {
@@ -26,6 +26,7 @@ const phoneDetailSelected = (
   return {
     id: phoneDetails.id,
     name: phoneDetails.name,
+    imageUrl: selectedColor.imageUrl,
     capacity: selectedStorage.capacity,
     price: selectedStorage.price,
     hexCode: selectedColor.hexCode,
@@ -57,7 +58,6 @@ export default async function PhoneDetailPage({ params }: { params: { phoneId: s
     phoneStorageOptions[0],
     phoneColorsOptions[0]
   );
-  console.log('selected', selectedPhoneDetails);
   return (
     <>
       <section>

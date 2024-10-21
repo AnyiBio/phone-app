@@ -1,0 +1,12 @@
+.card-total {
+  height: 40px;
+  text-align: right;
+  margin: 0 10%;
+  display: table;
+}
+
+div.card-total > span {
+  display: table;
+  display: table-cell;
+  vertical-align: middle;
+}
