@@ -18,6 +18,22 @@ const phoneOptionFirst = (opt: any) => {
   return opt && opt.length > 0 ? { ...opt[0] } : null;
 };
 
+const phoneDetailSelected = (
+  phoneDetails: PhoneDetail,
+  selectedStorage: StorageOptions,
+  selectedColor: ColorOptions
+) => {
+  return {
+    id: phoneDetails.id,
+    name: phoneDetails.name,
+    capacity: selectedStorage.capacity,
+    price: selectedStorage.price,
+    hexCode: selectedColor.hexCode,
+    colorName: selectedColor.name,
+    quantity: 0
+  };
+};
+
 export default async function PhoneDetailPage({ params }: { params: { phoneId: string } }) {
   const id = params.phoneId;
   const getProductDetail = async () => {
@@ -36,6 +52,12 @@ export default async function PhoneDetailPage({ params }: { params: { phoneId: s
   const phoneStorageOptions: StorageOptions[] = phoneDetailsResponse.productDetail?.storageOptions;
   const phoneColorsOptions: ColorOptions[] = phoneDetailsResponse.productDetail?.colorOptions;
 
+  const selectedPhoneDetails = phoneDetailSelected(
+    phoneDetails,
+    phoneStorageOptions[0],
+    phoneColorsOptions[0]
+  );
+  console.log('selected', selectedPhoneDetails);
   return (
     <>
       <section>
@@ -45,7 +67,7 @@ export default async function PhoneDetailPage({ params }: { params: { phoneId: s
         <div className={styles['box-detail']}>
           <div className="">
             <h2>{phoneDetails.name}</h2>
-            <h2>{phoneDetails.storageOptions[0].price} EUR</h2>
+            <h2>{phoneDetails.basePrice} EUR</h2>
           </div>
           <Suspense fallback={null}>
             <MiniCardList storageOptions={phoneStorageOptions} />
@@ -53,7 +75,9 @@ export default async function PhoneDetailPage({ params }: { params: { phoneId: s
           <Suspense fallback={null}>
             <ColorsList colorsOptions={phoneColorsOptions} />
           </Suspense>
-          <Button navigateTo="/cart">AÑADIR</Button>
+          <Button navigateTo="/cart" data={selectedPhoneDetails}>
+            AÑADIR
+          </Button>
         </div>
       </section>
       <Table phoneDetails={phoneDetails} />

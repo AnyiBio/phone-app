@@ -1,5 +1,4 @@
 'use client';
-
 import { useState } from 'react';
 import { StorageOptions } from '@/app/models/product-detail.model';
 import './mini-card.css';
