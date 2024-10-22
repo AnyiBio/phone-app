@@ -1,3 +1,5 @@
+'use client';
+
 import styles from './text-box.module.css';
 
 interface TextBox {
@@ -6,7 +8,7 @@ interface TextBox {
   basePrice: number;
 }
 
-export default async function TextBox({ ...textBoxProps }: TextBox) {
+export default function TextBox({ ...textBoxProps }: TextBox) {
   return (
     <>
       <p className={styles['text-brand']}>{textBoxProps.name}</p>

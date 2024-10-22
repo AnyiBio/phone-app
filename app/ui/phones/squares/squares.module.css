@@ -1,9 +1,19 @@
+.result-search {
+  position: fixed;
+  top: 160px;
+  left: 96px;
+  width: 100%;
+  padding: 0px;
+  height: 170px;
+  font-size: 14px;
+  font-weight: 100;
+}
 .phone-grid {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
-  padding: 16px;
+  padding: 96px;
   position: relative;
-  margin-top: 80px;
+  margin-top: 160px;
 }
 
 .phone-item {
