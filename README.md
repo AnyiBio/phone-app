@@ -69,8 +69,11 @@ This will generate optimized production-ready files in the dist directory.
 
 ## ENV variables
 NEXT_PUBLIC_API_PHONE=
+
 NEXT_PUBLIC_API_AUTHENTICATION=
+
 NEXT_PUBLIC_API_SERVER=
+
 Ask for the credentials, for NEXT_PUBLIC_API_SERVER, can use "http://localhost:3000"
 
 ## Contributing
