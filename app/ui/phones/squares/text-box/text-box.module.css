@@ -2,16 +2,21 @@
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  margin-bottom: 8px;
 }
 
-.text-detail + p {
+.text-detail > p {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  margin: 0 16px;
 }
 
 .text-brand {
-  margin: 0;
+  margin: 36px 0 0 16px;
   text-transform: uppercase;
   text-align: left;
+  color: #79736D;
+  font-size: 10px;
+  ;
 }

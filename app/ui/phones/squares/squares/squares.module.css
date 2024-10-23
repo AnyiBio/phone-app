@@ -24,7 +24,9 @@
   text-align: center;
   width: 344px;
   height: 344px;
-  margin: -16.5px 16 16 -16.5px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
 }
 
 .phone-item__container {
