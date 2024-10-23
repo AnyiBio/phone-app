@@ -38,3 +38,11 @@ section {
   display: flex;
   justify-content: space-between;
 }
+
+input:focus, select:focus {
+  outline:none;
+  outline-width: 0;
+  box-shadow: none;
+  -moz-box-shadow: none;
+  -webkit-box-shadow: none;
+}

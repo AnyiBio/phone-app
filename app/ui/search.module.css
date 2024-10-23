@@ -1,6 +1,6 @@
 .search {
   position: fixed;
-  top: 100px;
+  top: 80px;
   left: 0;
   width: 100%;
   padding: 0px;
@@ -11,6 +11,9 @@
   margin-bottom: 24px;
   margin-left: 96px;
   border-bottom: 0.5px solid #000;
+  height: 50px;
+  background: white;
+  z-index: 3;
 }
 
 .input-search {

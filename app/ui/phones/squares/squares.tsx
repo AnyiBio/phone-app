@@ -16,12 +16,25 @@ interface SquaresProps {
 
 export default function Squares({ phones, searchParams }: SquaresProps) {
   const query = searchParams?.query ?? '';
+  console.log(phones)
 
   const filteredPhones = phones.filter(
     (el) =>
       el.name.toLowerCase().includes(query.toLowerCase()) ||
       el.brand.toLowerCase().includes(query.toLowerCase())
   );
+
+  const getImageClass = (brand: string) => {
+    const brandLower = brand.toLowerCase();
+    
+    if (brandLower.includes('apple')) {
+      return styles['apple-image'];
+    } else if (brandLower.includes('xiaomi')) {
+      return styles['xiaomi-image'];
+    } else {
+      return styles['phone-item__image'];
+    }
+  };
 
   return (
     <>
@@ -37,7 +50,7 @@ export default function Squares({ phones, searchParams }: SquaresProps) {
                       src={phone?.imageUrl || ''}
                       width={100}
                       height={257}
-                      className={styles['phone-item__image']}
+                      className={getImageClass(phone.brand)}
                       alt="phone image"
                     />
                   </div>
