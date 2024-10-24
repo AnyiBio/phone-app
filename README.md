@@ -15,7 +15,7 @@ Welcome to the Phones App repository! This is a shopping application that simula
 
 ## Documentation and Architecture
 
-The project follows next suggested arquitechture principles to ensure a clear separation of concerns. The directory structure have the pages as a server side components meanwhile some UI components require to be servered by client because it use some hooks like useStare and or useEfrect. Every component is divided in pods. 
+The project follows next suggested arquitechture principles to ensure a clear separation of concerns. The directory structure have the pages as a server side components meanwhile some UI components require to be servered by client because it use some hooks like useState and or useEffect. Every component has been divided in pods. 
 
 ```plaintext
 /
