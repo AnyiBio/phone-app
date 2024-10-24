@@ -3,7 +3,7 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import TextBox from '../text-box/text-box';
-import Search from '../../../search';
+import Search from '@/app/ui/search';
 import { Phone } from '@/app/models/product-detail.model';
 import styles from './squares.module.css';
 

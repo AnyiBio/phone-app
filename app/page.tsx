@@ -1,7 +1,7 @@
 import { lazy, Suspense } from 'react';
 import { PhoneAPIResponse } from './models/api-response.model';
 
-const Phones = lazy(() => import('./ui/phones/squares/squares/squares'));
+const Phones = lazy(() => import('./ui/phones/squares/squares'));
 
 export default async function Page({
   searchParams
