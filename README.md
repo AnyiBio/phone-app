@@ -15,7 +15,7 @@ Welcome to the Phones App repository! This is a shopping application that simula
 
 ## Documentation and Architecture
 
-The project follows Hexagonal Architecture principles to ensure a clear separation of concerns. The directory structure is designed to keep the core logic isolated from external dependencies, making the application more maintainable and scalable.
+The project follows next suggested arquitechture principles to ensure a clear separation of concerns. The directory structure have the pages as a server side components meanwhile some UI components require to be servered by client because it use some hooks like useStare and or useEfrect. Every component is divided in pods. 
 
 ```plaintext
 /
