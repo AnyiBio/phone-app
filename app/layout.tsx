@@ -1,4 +1,5 @@
 'use client';
+
 import '@/app/ui/global.css';
 import Header from './ui/header';
 import { CartProvider } from './context/cart-context';

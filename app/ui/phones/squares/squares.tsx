@@ -16,7 +16,6 @@ interface SquaresProps {
 
 export default function Squares({ phones, searchParams }: SquaresProps) {
   const query = searchParams?.query ?? '';
-  console.log(phones);
 
   const filteredPhones = phones.filter(
     (el) =>
@@ -48,10 +47,11 @@ export default function Squares({ phones, searchParams }: SquaresProps) {
                   <div className={styles['phone-item__container']}>
                     <Image
                       src={phone?.imageUrl || ''}
-                      width={100}
-                      height={257}
+                      width={0}
+                      height={0}
                       className={getImageClass(phone.brand)}
                       alt="phone image"
+                      style={{ width: '100%', height: 'auto' }}
                     />
                   </div>
                   <TextBox name={phone.name} brand={phone.brand} basePrice={phone.basePrice} />

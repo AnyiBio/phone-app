@@ -19,3 +19,9 @@
     margin-left: 10%;
   }
 }
+
+@media (max-width: 768px) {
+    .box-detail {
+        width: 80%;
+      }
+}
