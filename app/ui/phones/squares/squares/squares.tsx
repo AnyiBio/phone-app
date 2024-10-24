@@ -16,7 +16,7 @@ interface SquaresProps {
 
 export default function Squares({ phones, searchParams }: SquaresProps) {
   const query = searchParams?.query ?? '';
-  console.log(phones)
+  console.log(phones);
 
   const filteredPhones = phones.filter(
     (el) =>
@@ -26,7 +26,7 @@ export default function Squares({ phones, searchParams }: SquaresProps) {
 
   const getImageClass = (brand: string) => {
     const brandLower = brand.toLowerCase();
-    
+
     if (brandLower.includes('apple')) {
       return styles['apple-image'];
     } else if (brandLower.includes('xiaomi')) {

@@ -1,17 +1,24 @@
 'use client';
 
-import { ColorOptions } from '@/app/models/product-detail.model';
 import { useState } from 'react';
+import { ColorOptions } from '@/app/models/product-detail.model';
 import './color-list.css';
 
 interface ColorsListProps {
   colorsOptions: ColorOptions[];
+  selectedColor: string;
+  onSelect: (color: string) => void;
 }
-export default function ColorsList({ colorsOptions }: ColorsListProps) {
-  const [selectedColor, setSelectedColor] = useState<string>('');
+export default function ColorsList({ colorsOptions, selectedColor, onSelect }: ColorsListProps) {
+  const [hoveredColor, setHoveredColor] = useState('');
 
-  const handleColorClick = (color: string) => {
-    setSelectedColor(color);
+
+  const handleMouseEnter = (colorName: string) => {
+    setHoveredColor(colorName);
+  };
+
+  const handleMouseLeave = () => {
+    setHoveredColor('');
   };
 
   return (
@@ -23,11 +30,13 @@ export default function ColorsList({ colorsOptions }: ColorsListProps) {
             key={el.hexCode}
             className={`color-square ${selectedColor === el.name ? 'selected' : ''}`}
             style={{ backgroundColor: el.hexCode }}
-            onClick={() => handleColorClick(el.name)}
+            onClick={() => onSelect(el.name)}
+            onMouseEnter={() => handleMouseEnter(el.name)}
+            onMouseLeave={handleMouseLeave}
           ></div>
         ))}
       </div>
-      <span>{selectedColor}</span>
+      <span className="color-hover">{hoveredColor || selectedColor}</span>
     </>
   );
 }

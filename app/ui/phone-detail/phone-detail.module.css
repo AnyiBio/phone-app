@@ -16,5 +16,6 @@
   .layout-container {
     padding: 48px;
     overflow-y: auto;
+    margin-left: 10%;
   }
 }

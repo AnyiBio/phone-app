@@ -22,7 +22,7 @@ export default function CardItem() {
               <div className="cart-item-container__item">
                 <Image
                   src={item.imageUrl}
-                  width={407}
+                  width={500}
                   height={500}
                   className=""
                   alt="phone_image_detail"

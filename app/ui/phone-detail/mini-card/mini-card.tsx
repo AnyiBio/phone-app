@@ -1,18 +1,12 @@
-'use client';
-import { useState } from 'react';
 import { StorageOptions } from '@/app/models/product-detail.model';
 import './mini-card.css';
 
 interface MiniCardProps {
   storageOptions: StorageOptions[];
+  onSelect: (capacity: string) => void;
+  selectedStorage: string;
 }
-export default function MiniCardList({ storageOptions }: MiniCardProps) {
-  const [selectedStorage, setSelectedStorage] = useState<string>('');
-
-  const handleStorageClick = (capacity: string) => {
-    setSelectedStorage(capacity);
-  };
-
+export default function MiniCardList({ storageOptions, onSelect, selectedStorage }: MiniCardProps) {
   return (
     <>
       <p>STORAGE ¿HOW MUCH SPACE DO YOU NEED?</p>
@@ -21,7 +15,7 @@ export default function MiniCardList({ storageOptions }: MiniCardProps) {
           <div
             className={`mini-card ${selectedStorage === el.capacity ? 'selected' : ''}`}
             key={el?.price}
-            onClick={() => handleStorageClick(el.capacity)}
+            onClick={() => onSelect(el.capacity)}
           >
             <p>{el?.capacity}</p>
           </div>
